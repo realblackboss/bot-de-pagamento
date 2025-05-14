@@ -62,7 +62,7 @@ def escape_markdown(text: str) -> str:
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Envia a imagem de boas-vindas primeiro
     try:
-        image_path = os.path.join(os.getcwd(), "imagem de ingrenagem bot usuarios", "imagem usuario.png")
+        image_path = os.path.join(os.getcwd(), "imagens", "usuario.png")
         if os.path.exists(image_path):
             with open(image_path, 'rb') as photo:
                 await update.message.reply_photo(photo=photo)
@@ -209,7 +209,7 @@ async def registros(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     # 📎 Tenta enviar um arquivo da pasta de configurações
-    config_dir = os.path.join(os.getcwd(), "imagem de ingrenagem bot D7PAGAMENTOSP27PAY")
+    config_dir = os.path.join(os.getcwd(), "imagens")
     
     try:
         if os.path.exists(config_dir):
