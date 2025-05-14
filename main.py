@@ -209,17 +209,18 @@ async def registros(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     # 📎 Tenta enviar um arquivo da pasta de configurações
-   config_image_path = os.path.join(os.getcwd(), "imagens", "imagem config.png.png")
+       config_image_path = os.path.join(os.getcwd(), "imagens", "imagem config.png.png")
 
-   try:
-       if os.path.exists(config_image_path):
-           with open(config_image_path, 'rb') as img:
-               await update.message.reply_photo(photo=img, caption="⚙️ Configurações do sistema")
-       else:
-           await update.message.reply_text("⚠️ Imagem de configuração não encontrada.")
-    except Exception as e:
-        logger.error(f"Erro ao enviar imagem de configuração: {str(e)}")
-        await update.message.reply_text("⚠️ Ocorreu um erro ao acessar as configurações.")
+       try:
+           if os.path.exists(config_image_path):
+               with open(config_image_path, 'rb') as img:
+                   await update.message.reply_photo(photo=img, caption="⚙️ Configurações do sistema")
+           else:
+                await update.message.reply_text("⚠️ Imagem de configuração não encontrada.")
+        except Exception as e:
+            logger.error(f"Erro ao enviar imagem de configuração: {str(e)}")
+            await update.message.reply_text("⚠️ Ocorreu um erro ao acessar as configurações.")
+
 
     # 🔒 Define o teclado ANTES de qualquer possível uso
     keyboard = [
